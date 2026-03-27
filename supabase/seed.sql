@@ -1,0 +1,135 @@
+-- MycoMaps DEV seed data
+-- WARNING: Truncates retailers table before inserting
+TRUNCATE TABLE retailers CASCADE;
+
+INSERT INTO retailers (slug, name, description, verticals, address, city, state, zip, lat, lng, phone, website, email, hours, cover_url, photo_urls, is_verified, subscription_tier, avg_rating, review_count) VALUES
+(
+  'boulder-healing-arts',
+  'Boulder Healing Arts',
+  'Colorado''s premier licensed psilocybin healing center, offering guided therapeutic experiences in a warm, supportive environment. Our licensed facilitators combine ancient wisdom with modern therapeutic approaches.',
+  ARRAY['therapeutic', 'medicinal'],
+  '1234 Pearl St', 'Boulder', 'CO', '80302',
+  40.0176, -105.2797,
+  '3035551234', 'https://boulderhealingarts.com', 'info@boulderhealingarts.com',
+  '{"mon":"9:00-17:00","tue":"9:00-17:00","wed":"9:00-17:00","thu":"9:00-17:00","fri":"9:00-17:00","sat":"10:00-16:00","sun":null}'::jsonb,
+  'https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=1200&q=80',
+  ARRAY['https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=800&q=80','https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80'],
+  true, 'pro', 4.9, 87
+),
+(
+  'colorado-mycelium-co',
+  'Colorado Mycelium Co.',
+  'Denver''s leading functional mushroom retailer. We source the finest lion''s mane, reishi, chaga, and turkey tail supplements. All products third-party tested for purity and potency.',
+  ARRAY['medicinal', 'gourmet'],
+  '2456 Curtis St', 'Denver', 'CO', '80205',
+  39.7545, -104.9921,
+  '7205552345', 'https://coloradomycelium.com', 'hello@coloradomycelium.com',
+  '{"mon":"10:00-19:00","tue":"10:00-19:00","wed":"10:00-19:00","thu":"10:00-19:00","fri":"10:00-20:00","sat":"9:00-18:00","sun":"11:00-16:00"}'::jsonb,
+  'https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?w=1200&q=80',
+  ARRAY['https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?w=800&q=80'],
+  true, 'plus', 4.7, 142
+),
+(
+  'lions-peak-wellness',
+  'Lion''s Peak Wellness',
+  'Boulder-based functional mushroom wellness shop specializing in cognitive health and immune support. We carry over 50 mushroom-based products, from raw powder to premium tinctures and capsules.',
+  ARRAY['medicinal'],
+  '3789 Broadway', 'Boulder', 'CO', '80304',
+  40.0267, -105.2813,
+  '3035553456', 'https://lionspeakwellness.com', NULL,
+  '{"mon":"9:00-18:00","tue":"9:00-18:00","wed":"9:00-18:00","thu":"9:00-18:00","fri":"9:00-18:00","sat":"10:00-17:00","sun":"12:00-16:00"}'::jsonb,
+  'https://images.unsplash.com/photo-1604762524889-3e2fcc145683?w=1200&q=80',
+  ARRAY[]::text[],
+  false, 'basic', 4.5, 58
+),
+(
+  'sacred-pines-healing',
+  'Sacred Pines Healing Center',
+  'A sanctuary for transformation. Our licensed psilocybin facilitators guide clients through deeply healing experiences in our nature-inspired facility. We offer individual and group sessions with comprehensive integration support.',
+  ARRAY['therapeutic'],
+  '5612 E Colfax Ave', 'Denver', 'CO', '80220',
+  39.7402, -104.947,
+  '7205554567', 'https://sacredpineshealing.com', 'care@sacredpineshealing.com',
+  '{"mon":"8:00-18:00","tue":"8:00-18:00","wed":"8:00-18:00","thu":"8:00-18:00","fri":"8:00-18:00","sat":"9:00-15:00","sun":null}'::jsonb,
+  'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80',
+  ARRAY[]::text[],
+  true, 'pro', 4.8, 63
+),
+(
+  'front-range-fungi',
+  'Front Range Fungi',
+  'Fort Collins'' favorite mushroom farm. We grow over 15 varieties of specialty mushrooms year-round, available weekly at the Old Town Farmers'' Market and our farm stand. CSA memberships available.',
+  ARRAY['gourmet'],
+  '123 College Ave', 'Fort Collins', 'CO', '80524',
+  40.5853, -105.0844,
+  '9705555678', 'https://frontrangefungi.com', NULL,
+  '{"mon":null,"tue":null,"wed":"10:00-18:00","thu":"10:00-18:00","fri":"10:00-18:00","sat":"8:00-14:00","sun":"10:00-14:00"}'::jsonb,
+  'https://images.unsplash.com/photo-1555658636-6e4a36218be7?w=1200&q=80',
+  ARRAY[]::text[],
+  false, 'basic', 4.6, 34
+),
+(
+  'mile-high-mushrooms',
+  'Mile High Mushrooms',
+  'Denver''s one-stop shop for gourmet and medicinal mushrooms. From fresh shiitake to lion''s mane extract, grow kits to dried fungi, we''ve got everything the mushroom lover needs. Chef-trusted, community-loved.',
+  ARRAY['gourmet', 'medicinal'],
+  '789 S Broadway', 'Denver', 'CO', '80209',
+  39.7072, -104.9871,
+  '3035556789', 'https://milehighmushrooms.co', NULL,
+  '{"mon":"10:00-19:00","tue":"10:00-19:00","wed":"10:00-19:00","thu":"10:00-19:00","fri":"10:00-20:00","sat":"9:00-20:00","sun":"10:00-17:00"}'::jsonb,
+  'https://images.unsplash.com/photo-1504544750208-dc0358e63f7f?w=1200&q=80',
+  ARRAY[]::text[],
+  true, 'plus', 4.4, 201
+),
+(
+  'rocky-mountain-spore-works',
+  'Rocky Mountain Spore Works',
+  'Northern Colorado''s premier mycology supply shop. We carry spore syringes, grain spawn, substrate materials, growing equipment, and educational resources for the home cultivator and professional grower alike.',
+  ARRAY['medicinal', 'gourmet'],
+  '456 Mountain Ave', 'Fort Collins', 'CO', '80521',
+  40.5893, -105.0697,
+  '9705557890', 'https://rmspore.works', NULL,
+  '{"mon":"11:00-17:00","tue":"11:00-17:00","wed":"11:00-17:00","thu":"11:00-17:00","fri":"11:00-18:00","sat":"10:00-16:00","sun":null}'::jsonb,
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80',
+  ARRAY[]::text[],
+  false, 'basic', 4.3, 77
+),
+(
+  'the-mycelium-network',
+  'The Mycelium Network',
+  'Boulder''s holistic mushroom hub — the only place in the area offering all three verticals under one roof. Shop medicinal supplements, pick up fresh gourmet varieties, and consult with our therapeutic intake team.',
+  ARRAY['therapeutic', 'medicinal', 'gourmet'],
+  '2891 Folsom St', 'Boulder', 'CO', '80304',
+  40.0208, -105.2555,
+  '3035558901', 'https://myceliumnetwork.co', 'network@myceliumnetwork.co',
+  '{"mon":"9:00-19:00","tue":"9:00-19:00","wed":"9:00-19:00","thu":"9:00-19:00","fri":"9:00-20:00","sat":"9:00-20:00","sun":"10:00-18:00"}'::jsonb,
+  'https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200&q=80',
+  ARRAY[]::text[],
+  true, 'pro', 4.8, 156
+),
+(
+  'pikes-peak-psilocybin',
+  'Pikes Peak Psilocybin',
+  'Denver''s newest licensed natural medicine healing center. We specialize in psilocybin-assisted therapy for veterans, first responders, and those dealing with treatment-resistant depression and PTSD.',
+  ARRAY['therapeutic'],
+  '1500 Blake St', 'Denver', 'CO', '80202',
+  39.7558, -104.9967,
+  '7205559012', 'https://pikespeakpsilocybin.com', 'intake@pikespeakpsilocybin.com',
+  '{"mon":"8:00-17:00","tue":"8:00-17:00","wed":"8:00-17:00","thu":"8:00-17:00","fri":"8:00-17:00","sat":"9:00-14:00","sun":null}'::jsonb,
+  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80',
+  ARRAY[]::text[],
+  true, 'plus', 4.9, 41
+),
+(
+  'golden-harvest-farms',
+  'Golden Harvest Farms',
+  'A family-owned mushroom farm in Fort Collins producing certified organic oyster, maitake, lion''s mane, and shiitake mushrooms. Available at local grocery co-ops, restaurants, and our on-farm store.',
+  ARRAY['gourmet'],
+  '890 Lemay Ave', 'Fort Collins', 'CO', '80524',
+  40.565, -105.0561,
+  '9705550123', 'https://goldenharvestfarms.farm', NULL,
+  '{"mon":null,"tue":null,"wed":null,"thu":"14:00-18:00","fri":"12:00-18:00","sat":"9:00-17:00","sun":"10:00-15:00"}'::jsonb,
+  'https://images.unsplash.com/photo-1574788768033-3f2a7e8b5cde?w=1200&q=80',
+  ARRAY[]::text[],
+  false, 'basic', 4.7, 28
+);
