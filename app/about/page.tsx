@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About ShroomMaps',
+  title: 'About MycoMaps',
   description:
-    'Learn about ShroomMaps — the mushroom marketplace connecting consumers with therapeutic healing centers, medicinal supplement shops, and gourmet mushroom farms.',
+    'Learn about MycoMaps — the mushroom marketplace connecting consumers with therapeutic healing centers, medicinal supplement shops, and gourmet mushroom farms.',
 }
 
 const PRICING_TIERS = [
@@ -92,7 +92,7 @@ export default function AboutPage() {
               margin: '0 auto',
             }}
           >
-            ShroomMaps is the first location-based marketplace connecting consumers with the full
+            MycoMaps is the first location-based marketplace connecting consumers with the full
             spectrum of mushroom commerce — from licensed psilocybin healing centers to medicinal
             supplement shops to gourmet farms.
           </p>
@@ -118,7 +118,7 @@ export default function AboutPage() {
             {
               icon: '🗺️',
               title: 'What We Do',
-              body: "ShroomMaps is the WeedMaps of mushrooms — a location-based directory where consumers can find and connect with retailers across three verticals: therapeutic psilocybin centers, medicinal supplement shops, and gourmet mushroom farms.",
+              body: "MycoMaps is the WeedMaps of mushrooms — a location-based directory where consumers can find and connect with retailers across three verticals: therapeutic psilocybin centers, medicinal supplement shops, and gourmet mushroom farms.",
             },
             {
               icon: '⚖️',
@@ -516,7 +516,7 @@ export default function AboutPage() {
 
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a
-              href="mailto:retailers@shroommaps.com"
+              href="mailto:retailers@mycomaps.com"
               style={{
                 backgroundColor: '#D4A843',
                 color: '#2C1810',

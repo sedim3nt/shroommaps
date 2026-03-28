@@ -1,4 +1,4 @@
--- ShroomMaps Initial Database Schema
+-- MycoMaps Initial Database Schema
 -- Migration: 001_initial
 -- Created: 2026-03-09
 

@@ -684,7 +684,7 @@ export default async function RetailerPage({
                   {retailer.subscriptionTier.charAt(0).toUpperCase() + retailer.subscriptionTier.slice(1)} Member
                 </p>
                 <p style={{ fontSize: '0.75rem', color: '#8B6F47', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}>
-                  Verified ShroomMaps partner
+                  Verified MycoMaps partner
                 </p>
               </div>
             </div>

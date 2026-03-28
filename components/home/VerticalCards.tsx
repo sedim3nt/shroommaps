@@ -65,7 +65,7 @@ export default function VerticalCards() {
               fontFamily: 'var(--font-inter, Inter, sans-serif)',
             }}
           >
-            Whether you&apos;re seeking healing, wellness, or culinary adventure — ShroomMaps connects
+            Whether you&apos;re seeking healing, wellness, or culinary adventure — MycoMaps connects
             you to the right resources.
           </p>
         </div>

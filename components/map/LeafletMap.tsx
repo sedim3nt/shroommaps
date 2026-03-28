@@ -82,7 +82,7 @@ export default function LeafletMap({
           popupAnchor: [0, isSelected ? -18 : -14],
         })
 
-        const popup = L.popup({ closeButton: false, className: 'shroom-popup' }).setContent(`
+        const popup = L.popup({ closeButton: false, className: 'myco-popup' }).setContent(`
           <div style="font-family:Inter,sans-serif;padding:4px;min-width:180px;">
             <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#2C1810;margin-bottom:4px">${retailer.name}</div>
             <div style="font-size:0.75rem;color:#A89278;margin-bottom:4px">📍 ${retailer.city}, ${retailer.state}</div>

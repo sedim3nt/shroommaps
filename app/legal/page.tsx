@@ -184,7 +184,7 @@ export default function LegalPage() {
               fontFamily: 'var(--font-inter, Inter, sans-serif)',
             }}
           >
-            ShroomMaps only lists therapeutic retailers in jurisdictions where healing centers are legally
+            MycoMaps only lists therapeutic retailers in jurisdictions where healing centers are legally
             licensed. We do not facilitate or encourage any illegal activity.
           </p>
         </div>

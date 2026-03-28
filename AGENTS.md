@@ -1,7 +1,7 @@
-# ShroomMaps — Agent Instructions
+# MycoMaps — Agent Instructions
 
 ## Project
-ShroomMaps: A location-based marketplace connecting consumers with mushroom retailers (medicinal, therapeutic/psilocybin, gourmet).
+MycoMaps: A location-based marketplace connecting consumers with mushroom retailers (medicinal, therapeutic/psilocybin, gourmet).
 
 ## Stack
 - Next.js 15 + React 19 + TypeScript
@@ -12,7 +12,7 @@ ShroomMaps: A location-based marketplace connecting consumers with mushroom reta
 - Deployed to Vercel or GitHub Pages
 
 ## Design System
-- See /Users/spirittree/.openclaw/workspace/projects/shroommaps/BRAND.md for colors, typography, design direction
+- See /Users/spirittree/.openclaw/workspace/projects/mycomaps/BRAND.md for colors, typography, design direction
 - Earthy, warm, trustworthy — not clinical, not psychedelic
 - Mobile-first responsive
 - WCAG AA accessibility minimum
@@ -28,7 +28,7 @@ ShroomMaps: A location-based marketplace connecting consumers with mushroom reta
 - Gourmet vertical: Warm Orange #D4853A
 
 ## Architecture
-See /Users/spirittree/.openclaw/workspace/projects/shroommaps/PRD.md for full PRD including database schema.
+See /Users/spirittree/.openclaw/workspace/projects/mycomaps/PRD.md for full PRD including database schema.
 
 ## Phase 1 Scope (Build This)
 1. Homepage with hero, search bar, three vertical cards

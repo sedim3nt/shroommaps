@@ -9,7 +9,7 @@ const LINKS = {
     { href: '/legal', label: 'Legal Status' },
   ],
   Company: [
-    { href: '/about', label: 'About ShroomMaps' },
+    { href: '/about', label: 'About MycoMaps' },
     { href: '/about#retailers', label: 'For Retailers' },
     { href: '/about#claim', label: 'Claim a Listing' },
   ],
@@ -67,7 +67,7 @@ export default function Footer() {
                   color: '#FAF7F0',
                 }}
               >
-                ShroomMaps
+                MycoMaps
               </span>
             </div>
             <p
@@ -150,8 +150,8 @@ export default function Footer() {
                 fontFamily: 'var(--font-inter, Inter, sans-serif)',
               }}
             >
-              © {new Date().getFullYear()} ShroomMaps. All rights reserved. For informational purposes only.
-              ShroomMaps does not sell or facilitate the sale of controlled substances.
+              © {new Date().getFullYear()} MycoMaps. All rights reserved. For informational purposes only.
+              MycoMaps does not sell or facilitate the sale of controlled substances.
             </p>
             <div
               style={{
@@ -194,7 +194,7 @@ export default function Footer() {
           >
             ⚠️ Disclaimer: Therapeutic listings are only shown for jurisdictions where psilocybin healing
             centers are legally licensed. Always verify local laws before seeking or providing services.
-            ShroomMaps is a directory platform — we do not provide medical advice.
+            MycoMaps is a directory platform — we do not provide medical advice.
           </p>
         </div>
       </div>

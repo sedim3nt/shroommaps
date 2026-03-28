@@ -19,8 +19,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'ShroomMaps — Find Your Fungi',
-    template: '%s | ShroomMaps',
+    default: 'MycoMaps — Find Your Fungi',
+    template: '%s | MycoMaps',
   },
   description:
     'Discover mushroom retailers near you. Therapeutic healing centers, medicinal supplement shops, and gourmet mushroom farms — all in one place.',
@@ -35,14 +35,14 @@ export const metadata: Metadata = {
     'mushroom retailer',
   ],
   openGraph: {
-    title: 'ShroomMaps — Find Your Fungi',
+    title: 'MycoMaps — Find Your Fungi',
     description: 'The mushroom marketplace. Find therapeutic, medicinal, and gourmet mushroom retailers near you.',
     type: 'website',
-    siteName: 'ShroomMaps',
+    siteName: 'MycoMaps',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ShroomMaps — Find Your Fungi',
+    title: 'MycoMaps — Find Your Fungi',
     description: 'The mushroom marketplace. Find therapeutic, medicinal, and gourmet mushroom retailers near you.',
   },
 }

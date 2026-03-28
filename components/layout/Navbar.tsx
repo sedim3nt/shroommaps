@@ -69,7 +69,7 @@ export default function Navbar() {
               letterSpacing: '-0.01em',
             }}
           >
-            ShroomMaps
+            MycoMaps
           </span>
         </Link>
 

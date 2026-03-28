@@ -53,18 +53,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Leaflet popup override */
-.shroom-popup .leaflet-popup-content-wrapper {
+.myco-popup .leaflet-popup-content-wrapper {
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   border: none;
   padding: 0;
 }
 
-.shroom-popup .leaflet-popup-content {
+.myco-popup .leaflet-popup-content {
   margin: 16px;
 }
 
-.shroom-popup .leaflet-popup-tip {
+.myco-popup .leaflet-popup-tip {
   background: white;
 }
 
