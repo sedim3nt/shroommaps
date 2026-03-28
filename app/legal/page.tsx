@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: 'Psilocybin Legal Status Map',
   description:
     'Interactive map showing psilocybin mushroom legal status across all 50 US states. Find where therapeutic access, decriminalization, and prohibition apply.',
+  openGraph: {
+    title: 'Psilocybin Legal Status Map | MycoMaps',
+    description: 'Interactive map showing psilocybin mushroom legal status across all 50 US states.',
+  },
 }
 
 export default function LegalPage() {

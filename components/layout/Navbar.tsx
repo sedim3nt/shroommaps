@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import UserButton from '@/components/auth/UserButton'
 
 const NAV_LINKS = [
   { href: '/search', label: 'Explore' },
@@ -102,6 +103,8 @@ export default function Navbar() {
             </Link>
           ))}
 
+          <UserButton />
+
           <Link
             href="/search"
             style={{
@@ -179,6 +182,9 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <div style={{ padding: '12px 16px' }}>
+            <UserButton />
+          </div>
           <Link
             href="/search"
             onClick={() => setMenuOpen(false)}

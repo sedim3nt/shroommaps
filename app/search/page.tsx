@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useMemo, useEffect } from 'react'
-import { getRetailers } from '@/lib/retailers'
+import { useState, useMemo, useEffect, useCallback } from 'react'
+import { getRetailers, getDistinctCities } from '@/lib/retailers'
 import RetailerCard from '@/components/ui/RetailerCard'
 import VerticalBadge from '@/components/ui/VerticalBadge'
 import MapWrapper from '@/components/map/MapWrapper'
@@ -14,26 +14,43 @@ const VERTICALS: { id: Vertical | ''; label: string; color: string }[] = [
   { id: 'gourmet', label: '🍽️ Gourmet', color: '#D4853A' },
 ]
 
-const CITIES = ['All Cities', 'Boulder', 'Denver', 'Fort Collins']
-
 export default function SearchPage() {
   const [retailers, setRetailers] = useState<Retailer[]>([])
   const [selectedVertical, setSelectedVertical] = useState<Vertical | ''>('')
   const [selectedCity, setSelectedCity] = useState('All Cities')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [cities, setCities] = useState<string[]>([])
   const [selectedRetailer, setSelectedRetailer] = useState<Retailer | null>(null)
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map')
+  const [loading, setLoading] = useState(true)
 
+  // Load cities on mount
   useEffect(() => {
-    getRetailers().then(setRetailers)
+    getDistinctCities().then(setCities)
   }, [])
 
-  const filtered = useMemo(() => {
-    return retailers.filter((r) => {
-      const matchVertical = !selectedVertical || r.verticals.includes(selectedVertical)
-      const matchCity = selectedCity === 'All Cities' || r.city === selectedCity
-      return matchVertical && matchCity
+  // Load retailers with filters
+  const loadRetailers = useCallback(async () => {
+    setLoading(true)
+    const data = await getRetailers({
+      vertical: selectedVertical || undefined,
+      city: selectedCity === 'All Cities' ? undefined : selectedCity,
+      search: searchQuery || undefined,
     })
-  }, [retailers, selectedVertical, selectedCity])
+    setRetailers(data)
+    setLoading(false)
+  }, [selectedVertical, selectedCity, searchQuery])
+
+  useEffect(() => {
+    loadRetailers()
+  }, [loadRetailers])
+
+  // Debounced search
+  const [searchInput, setSearchInput] = useState('')
+  useEffect(() => {
+    const timer = setTimeout(() => setSearchQuery(searchInput), 300)
+    return () => clearTimeout(timer)
+  }, [searchInput])
 
   return (
     <div
@@ -79,8 +96,30 @@ export default function SearchPage() {
                 fontFamily: 'var(--font-inter, Inter, sans-serif)',
               }}
             >
-              {filtered.length} retailers found
+              {loading ? 'Loading...' : `${retailers.length} retailers found`}
             </span>
+          </div>
+
+          {/* Search input */}
+          <div style={{ marginBottom: '12px' }}>
+            <input
+              type="text"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder="Search retailers by name, city, or description..."
+              style={{
+                width: '100%',
+                padding: '10px 16px',
+                borderRadius: '10px',
+                border: '2px solid rgba(255,255,255,0.15)',
+                backgroundColor: 'rgba(0,0,0,0.2)',
+                color: '#FAF7F0',
+                fontSize: '0.9rem',
+                fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                outline: 'none',
+                boxSizing: 'border-box',
+              }}
+            />
           </div>
 
           {/* Filters */}
@@ -116,7 +155,7 @@ export default function SearchPage() {
               </button>
             ))}
 
-            {/* City filter */}
+            {/* City filter - dynamic */}
             <select
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.target.value)}
@@ -132,7 +171,10 @@ export default function SearchPage() {
                 fontFamily: 'var(--font-inter, Inter, sans-serif)',
               }}
             >
-              {CITIES.map((c) => (
+              <option value="All Cities" style={{ backgroundColor: '#2D5016' }}>
+                All Cities
+              </option>
+              {cities.map((c) => (
                 <option key={c} value={c} style={{ backgroundColor: '#2D5016' }}>
                   {c}
                 </option>
@@ -204,7 +246,7 @@ export default function SearchPage() {
           className={viewMode === 'list' ? 'map-hidden' : ''}
         >
           <MapWrapper
-            retailers={filtered}
+            retailers={retailers}
             onRetailerSelect={(r) => setSelectedRetailer(r)}
             selectedId={selectedRetailer?.id}
           />
@@ -243,7 +285,7 @@ export default function SearchPage() {
                 marginBottom: '4px',
               }}
             >
-              {filtered.length} Retailers
+              {retailers.length} Retailers
             </h2>
             {selectedVertical && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -269,7 +311,7 @@ export default function SearchPage() {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            {filtered.length === 0 ? (
+            {retailers.length === 0 && !loading ? (
               <div
                 style={{
                   textAlign: 'center',
@@ -285,7 +327,7 @@ export default function SearchPage() {
                 <p style={{ fontSize: '0.875rem' }}>Try adjusting your filters</p>
               </div>
             ) : (
-              filtered.map((retailer) => (
+              retailers.map((retailer) => (
                 <div
                   key={retailer.id}
                   onClick={() => setSelectedRetailer(retailer)}

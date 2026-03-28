@@ -15,6 +15,10 @@ export const supabase =
     ? createClient(supabaseUrl, supabaseAnonKey)
     : null
 
+export function createBrowserClient() {
+  return createClient(supabaseUrl, supabaseAnonKey)
+}
+
 export type Database = {
   public: {
     Tables: {
@@ -49,6 +53,77 @@ export type Database = {
           review_count: number
           created_at: string
           updated_at: string
+        }
+      }
+      products: {
+        Row: {
+          id: string
+          retailer_id: string
+          name: string
+          description: string | null
+          category: string | null
+          species: string[]
+          price_cents: number | null
+          image_url: string | null
+          is_available: boolean | null
+          created_at: string
+        }
+      }
+      reviews: {
+        Row: {
+          id: string
+          retailer_id: string
+          user_id: string | null
+          author_name: string | null
+          rating: number
+          body: string | null
+          is_verified_purchase: boolean | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          retailer_id: string
+          user_id?: string | null
+          author_name?: string | null
+          rating: number
+          body?: string | null
+          is_verified_purchase?: boolean | null
+          created_at?: string
+        }
+      }
+      deals: {
+        Row: {
+          id: string
+          retailer_id: string
+          title: string
+          description: string | null
+          discount_pct: number | null
+          promo_code: string | null
+          expires_at: string | null
+          is_featured: boolean | null
+          created_at: string
+        }
+      }
+      claims: {
+        Row: {
+          id: string
+          retailer_id: string
+          name: string
+          email: string
+          phone: string | null
+          proof_description: string
+          status: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          retailer_id: string
+          name: string
+          email: string
+          phone?: string | null
+          proof_description: string
+          status?: string
+          created_at?: string
         }
       }
     }

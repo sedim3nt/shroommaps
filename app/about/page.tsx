@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: 'About MycoMaps',
   description:
     'Learn about MycoMaps — the mushroom marketplace connecting consumers with therapeutic healing centers, medicinal supplement shops, and gourmet mushroom farms.',
+  openGraph: {
+    title: 'About MycoMaps — Find Your Fungi',
+    description: 'The mushroom marketplace connecting consumers with therapeutic, medicinal, and gourmet mushroom retailers.',
+  },
 }
 
 const PRICING_TIERS = [

@@ -1,14 +1,16 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { mockRetailers, mockProducts, mockReviews, mockDeals } from '@/data/mock-retailers'
-import { getRetailerBySlug } from '@/lib/retailers'
+import { getRetailerBySlug, getAllRetailerSlugs, getRetailerProducts, getRetailerReviews, getRetailerDeals } from '@/lib/retailers'
 import VerticalBadge from '@/components/ui/VerticalBadge'
 import StarRating from '@/components/ui/StarRating'
+import ReviewSection from '@/components/reviews/ReviewSection'
+import ClaimForm from '@/components/retailer/ClaimForm'
 import { formatPhone } from '@/lib/utils'
 import type { Metadata } from 'next'
 
 export async function generateStaticParams() {
-  return mockRetailers.map((r) => ({ slug: r.slug }))
+  const slugs = await getAllRetailerSlugs()
+  return slugs.map((slug) => ({ slug }))
 }
 
 export async function generateMetadata({
@@ -19,9 +21,22 @@ export async function generateMetadata({
   const { slug } = await params
   const retailer = await getRetailerBySlug(slug)
   if (!retailer) return {}
+  const title = `${retailer.name} — ${retailer.city}, ${retailer.state}`
+  const description = retailer.description.slice(0, 160)
   return {
-    title: retailer.name,
-    description: retailer.description,
+    title,
+    description,
+    openGraph: {
+      title: `${retailer.name} | MycoMaps`,
+      description,
+      type: 'website',
+      siteName: 'MycoMaps',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${retailer.name} | MycoMaps`,
+      description,
+    },
   }
 }
 
@@ -34,9 +49,11 @@ export default async function RetailerPage({
   const retailer = await getRetailerBySlug(slug)
   if (!retailer) notFound()
 
-  const products = mockProducts.filter((p) => p.retailerId === retailer.id)
-  const reviews = mockReviews.filter((r) => r.retailerId === retailer.id)
-  const deals = mockDeals.filter((d) => d.retailerId === retailer.id)
+  const [products, reviews, deals] = await Promise.all([
+    getRetailerProducts(retailer.id),
+    getRetailerReviews(retailer.id),
+    getRetailerDeals(retailer.id),
+  ])
 
   const DAYS = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
   const DAY_LABELS: Record<string, string> = {
@@ -388,89 +405,12 @@ export default async function RetailerPage({
           )}
 
           {/* Reviews */}
-          <section>
-            <h2
-              style={{
-                fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
-                fontSize: '1.5rem',
-                fontWeight: 700,
-                color: '#2C1810',
-                marginBottom: '8px',
-              }}
-            >
-              Reviews
-            </h2>
-            <div style={{ marginBottom: '20px' }}>
-              <StarRating rating={retailer.avgRating} reviewCount={retailer.reviewCount} size="lg" />
-            </div>
-
-            {reviews.length > 0 ? (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                {reviews.map((review) => (
-                  <div
-                    key={review.id}
-                    style={{
-                      backgroundColor: '#F0EBE0',
-                      borderRadius: '12px',
-                      padding: '20px',
-                    }}
-                  >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
-                      <div>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                          <span
-                            style={{
-                              fontWeight: 700,
-                              fontSize: '0.9rem',
-                              color: '#2C1810',
-                              fontFamily: 'var(--font-inter, Inter, sans-serif)',
-                            }}
-                          >
-                            {review.authorName}
-                          </span>
-                          {review.isVerifiedPurchase && (
-                            <span
-                              style={{
-                                backgroundColor: '#87A878',
-                                color: '#FAF7F0',
-                                borderRadius: '9999px',
-                                padding: '2px 8px',
-                                fontSize: '0.65rem',
-                                fontWeight: 700,
-                                fontFamily: 'var(--font-inter, Inter, sans-serif)',
-                              }}
-                            >
-                              ✓ Verified
-                            </span>
-                          )}
-                        </div>
-                        <StarRating rating={review.rating} size="sm" />
-                      </div>
-                      <span style={{ fontSize: '0.8rem', color: '#A89278', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}>
-                        {new Date(review.createdAt).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
-                      </span>
-                    </div>
-                    <p style={{ fontSize: '0.9rem', color: '#5C4033', lineHeight: 1.7, fontFamily: 'var(--font-inter, Inter, sans-serif)' }}>
-                      {review.body}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div
-                style={{
-                  backgroundColor: '#F0EBE0',
-                  borderRadius: '12px',
-                  padding: '32px',
-                  textAlign: 'center',
-                  color: '#A89278',
-                  fontFamily: 'var(--font-inter, Inter, sans-serif)',
-                }}
-              >
-                No reviews yet. Be the first!
-              </div>
-            )}
-          </section>
+          <ReviewSection
+            retailerId={retailer.id}
+            initialReviews={reviews}
+            avgRating={retailer.avgRating}
+            reviewCount={retailer.reviewCount}
+          />
         </div>
 
         {/* Right sidebar */}
@@ -689,6 +629,9 @@ export default async function RetailerPage({
               </div>
             </div>
           )}
+
+          {/* Claim listing */}
+          <ClaimForm retailerId={retailer.id} retailerName={retailer.name} />
         </div>
       </div>
 
