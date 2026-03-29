@@ -18,11 +18,12 @@ export default function Navbar() {
   return (
     <nav
       style={{
-        backgroundColor: '#2D5016',
+        backgroundColor: '#0D1F0D',
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+        boxShadow: '0 1px 0 rgba(123, 201, 80, 0.1)',
+        borderBottom: '1px solid rgba(123, 201, 80, 0.08)',
       }}
     >
       <div
@@ -50,7 +51,7 @@ export default function Navbar() {
             style={{
               width: '36px',
               height: '36px',
-              backgroundColor: '#D4A843',
+              backgroundColor: '#7BC950',
               borderRadius: '8px',
               display: 'flex',
               alignItems: 'center',
@@ -63,10 +64,10 @@ export default function Navbar() {
           </div>
           <span
             style={{
-              fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
+              fontFamily: 'var(--font-fraunces, Fraunces, serif)',
               fontWeight: 700,
               fontSize: '1.25rem',
-              color: '#FAF7F0',
+              color: '#E0E0E0',
               letterSpacing: '-0.01em',
             }}
           >
@@ -88,15 +89,15 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               style={{
-                color: pathname === link.href ? '#D4A843' : 'rgba(250,247,240,0.75)',
+                color: pathname === link.href ? '#7BC950' : 'rgba(224, 224, 224, 0.65)',
                 textDecoration: 'none',
                 fontSize: '0.9rem',
                 fontWeight: pathname === link.href ? 600 : 400,
                 padding: '8px 16px',
                 borderRadius: '8px',
-                backgroundColor: pathname === link.href ? 'rgba(212,168,67,0.15)' : 'transparent',
+                backgroundColor: pathname === link.href ? 'rgba(123, 201, 80, 0.1)' : 'transparent',
                 transition: 'all 200ms ease',
-                fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                fontFamily: 'var(--font-literata, Literata, serif)',
               }}
             >
               {link.label}
@@ -108,15 +109,15 @@ export default function Navbar() {
           <Link
             href="/search"
             style={{
-              backgroundColor: '#D4A843',
-              color: '#2C1810',
+              backgroundColor: '#7BC950',
+              color: '#0D1F0D',
               padding: '8px 20px',
               borderRadius: '8px',
               fontWeight: 700,
               fontSize: '0.9rem',
               textDecoration: 'none',
               marginLeft: '8px',
-              fontFamily: 'var(--font-inter, Inter, sans-serif)',
+              fontFamily: 'var(--font-literata, Literata, serif)',
               transition: 'background-color 200ms ease',
             }}
           >
@@ -132,7 +133,7 @@ export default function Navbar() {
             background: 'none',
             border: 'none',
             cursor: 'pointer',
-            color: '#FAF7F0',
+            color: '#E0E0E0',
             padding: '8px',
             display: 'none',
           }}
@@ -156,8 +157,8 @@ export default function Navbar() {
       {menuOpen && (
         <div
           style={{
-            backgroundColor: '#2D5016',
-            borderTop: '1px solid rgba(255,255,255,0.1)',
+            backgroundColor: '#0D1F0D',
+            borderTop: '1px solid rgba(123, 201, 80, 0.1)',
             padding: '16px 24px',
             display: 'flex',
             flexDirection: 'column',
@@ -170,13 +171,13 @@ export default function Navbar() {
               href={link.href}
               onClick={() => setMenuOpen(false)}
               style={{
-                color: pathname === link.href ? '#D4A843' : 'rgba(250,247,240,0.85)',
+                color: pathname === link.href ? '#7BC950' : 'rgba(224, 224, 224, 0.8)',
                 textDecoration: 'none',
                 fontSize: '1rem',
                 fontWeight: pathname === link.href ? 600 : 400,
                 padding: '12px 16px',
                 borderRadius: '8px',
-                fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                fontFamily: 'var(--font-literata, Literata, serif)',
               }}
             >
               {link.label}
@@ -189,8 +190,8 @@ export default function Navbar() {
             href="/search"
             onClick={() => setMenuOpen(false)}
             style={{
-              backgroundColor: '#D4A843',
-              color: '#2C1810',
+              backgroundColor: '#7BC950',
+              color: '#0D1F0D',
               padding: '12px 16px',
               borderRadius: '8px',
               fontWeight: 700,
@@ -198,7 +199,7 @@ export default function Navbar() {
               textDecoration: 'none',
               marginTop: '8px',
               textAlign: 'center',
-              fontFamily: 'var(--font-inter, Inter, sans-serif)',
+              fontFamily: 'var(--font-literata, Literata, serif)',
             }}
           >
             Find Retailers

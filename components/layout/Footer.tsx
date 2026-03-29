@@ -25,10 +25,11 @@ export default function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: '#2C1810',
-        color: '#FAF7F0',
+        backgroundColor: '#1A1A2E',
+        color: '#E0E0E0',
         padding: '64px 24px 32px',
         marginTop: 'auto',
+        borderTop: '1px solid rgba(123, 201, 80, 0.1)',
       }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
@@ -48,7 +49,7 @@ export default function Footer() {
                 style={{
                   width: '36px',
                   height: '36px',
-                  backgroundColor: '#D4A843',
+                  backgroundColor: '#7BC950',
                   borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
@@ -61,10 +62,10 @@ export default function Footer() {
               </div>
               <span
                 style={{
-                  fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
+                  fontFamily: 'var(--font-fraunces, Fraunces, serif)',
                   fontWeight: 700,
                   fontSize: '1.25rem',
-                  color: '#FAF7F0',
+                  color: '#E0E0E0',
                 }}
               >
                 MycoMaps
@@ -73,10 +74,10 @@ export default function Footer() {
             <p
               style={{
                 fontSize: '0.875rem',
-                color: '#A89278',
+                color: '#8A9A8A',
                 lineHeight: 1.6,
                 maxWidth: '260px',
-                fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                fontFamily: 'var(--font-literata, Literata, serif)',
               }}
             >
               The mushroom marketplace. Connecting consumers with therapeutic healing centers, medicinal
@@ -85,9 +86,9 @@ export default function Footer() {
             <p
               style={{
                 fontSize: '0.75rem',
-                color: '#8B6F47',
+                color: 'rgba(123, 201, 80, 0.5)',
                 marginTop: '16px',
-                fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                fontFamily: 'var(--font-literata, Literata, serif)',
               }}
             >
               Colorado &bull; Oregon &bull; Nationwide
@@ -99,12 +100,12 @@ export default function Footer() {
             <div key={category}>
               <h4
                 style={{
-                  fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                  fontFamily: 'var(--font-literata, Literata, serif)',
                   fontSize: '0.75rem',
                   fontWeight: 700,
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
-                  color: '#8B6F47',
+                  color: '#7BC950',
                   marginBottom: '16px',
                 }}
               >
@@ -116,10 +117,10 @@ export default function Footer() {
                     <Link
                       href={link.href}
                       style={{
-                        color: 'rgba(250,247,240,0.7)',
+                        color: 'rgba(224, 224, 224, 0.6)',
                         textDecoration: 'none',
                         fontSize: '0.875rem',
-                        fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                        fontFamily: 'var(--font-literata, Literata, serif)',
                         transition: 'color 200ms ease',
                       }}
                     >
@@ -133,7 +134,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '32px' }}>
+        <div style={{ borderTop: '1px solid rgba(123, 201, 80, 0.1)', paddingTop: '32px' }}>
           <div
             style={{
               display: 'flex',
@@ -146,8 +147,8 @@ export default function Footer() {
             <p
               style={{
                 fontSize: '0.8rem',
-                color: '#8B6F47',
-                fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                color: '#8A9A8A',
+                fontFamily: 'var(--font-literata, Literata, serif)',
               }}
             >
               © {new Date().getFullYear()} MycoMaps. All rights reserved. For informational purposes only.
@@ -163,8 +164,8 @@ export default function Footer() {
               <span
                 style={{
                   fontSize: '0.75rem',
-                  color: '#8B6F47',
-                  fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                  color: '#8A9A8A',
+                  fontFamily: 'var(--font-literata, Literata, serif)',
                 }}
               >
                 Built with care by
@@ -173,8 +174,8 @@ export default function Footer() {
               <span
                 style={{
                   fontSize: '0.75rem',
-                  color: '#D4A843',
-                  fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                  color: '#7BC950',
+                  fontFamily: 'var(--font-literata, Literata, serif)',
                   fontWeight: 600,
                 }}
               >
@@ -186,10 +187,10 @@ export default function Footer() {
           <p
             style={{
               fontSize: '0.72rem',
-              color: '#6B5040',
+              color: 'rgba(138, 154, 138, 0.7)',
               marginTop: '12px',
               lineHeight: 1.5,
-              fontFamily: 'var(--font-inter, Inter, sans-serif)',
+              fontFamily: 'var(--font-literata, Literata, serif)',
             }}
           >
             ⚠️ Disclaimer: Therapeutic listings are only shown for jurisdictions where psilocybin healing

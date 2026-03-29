@@ -55,7 +55,7 @@ export default function SearchPage() {
   return (
     <div
       style={{
-        backgroundColor: '#FAF7F0',
+        backgroundColor: '#0D1F0D',
         minHeight: 'calc(100vh - 64px)',
         display: 'flex',
         flexDirection: 'column',
@@ -64,7 +64,7 @@ export default function SearchPage() {
       {/* Search header */}
       <div
         style={{
-          backgroundColor: '#2D5016',
+          backgroundColor: '#1A3A1A',
           padding: '20px 24px',
         }}
       >
@@ -81,10 +81,10 @@ export default function SearchPage() {
           >
             <h1
               style={{
-                fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
+                fontFamily: 'var(--font-fraunces, Fraunces, serif)',
                 fontSize: '1.5rem',
                 fontWeight: 700,
-                color: '#FAF7F0',
+                color: '#E0E0E0',
               }}
             >
               Mushroom Retailers in Colorado
@@ -92,8 +92,8 @@ export default function SearchPage() {
             <span
               style={{
                 fontSize: '0.875rem',
-                color: 'rgba(250,247,240,0.7)',
-                fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                color: 'rgba(224,224,224,0.7)',
+                fontFamily: 'var(--font-literata, Literata, serif)',
               }}
             >
               {loading ? 'Loading...' : `${retailers.length} retailers found`}
@@ -110,12 +110,12 @@ export default function SearchPage() {
               style={{
                 width: '100%',
                 padding: '10px 16px',
-                borderRadius: '10px',
-                border: '2px solid rgba(255,255,255,0.15)',
-                backgroundColor: 'rgba(0,0,0,0.2)',
-                color: '#FAF7F0',
+                borderRadius: '2px',
+                border: '2px solid rgba(123, 201, 80, 0.3)',
+                backgroundColor: 'rgba(13, 31, 13, 0.9)',
+                color: '#E0E0E0',
                 fontSize: '0.9rem',
-                fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                fontFamily: 'var(--font-literata, Literata, serif)',
                 outline: 'none',
                 boxSizing: 'border-box',
               }}

@@ -4,23 +4,24 @@ export default function HeroSection() {
   return (
     <section
       style={{
-        background: 'linear-gradient(135deg, #1a3009 0%, #2D5016 40%, #3d6b20 70%, #4a7a2a 100%)',
-        minHeight: '620px',
+        background: 'linear-gradient(135deg, #0D1F0D 0%, #1A3A1A 40%, #0D1F0D 70%, #1A1A2E 100%)',
+        minHeight: '660px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '80px 24px',
+        padding: '100px 24px 80px',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Background texture overlay */}
+      {/* Subtle radial glow overlays */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: `radial-gradient(circle at 20% 80%, rgba(139, 111, 71, 0.15) 0%, transparent 60%),
-            radial-gradient(circle at 80% 20%, rgba(212, 168, 67, 0.08) 0%, transparent 50%)`,
+          backgroundImage: `radial-gradient(circle at 30% 70%, rgba(123, 201, 80, 0.06) 0%, transparent 50%),
+            radial-gradient(circle at 70% 30%, rgba(45, 90, 39, 0.12) 0%, transparent 50%),
+            radial-gradient(circle at 50% 50%, rgba(123, 201, 80, 0.03) 0%, transparent 70%)`,
           pointerEvents: 'none',
         }}
       />
@@ -32,7 +33,7 @@ export default function HeroSection() {
           bottom: '-20px',
           right: '5%',
           fontSize: '12rem',
-          opacity: 0.04,
+          opacity: 0.03,
           transform: 'rotate(-10deg)',
           pointerEvents: 'none',
           userSelect: 'none',
@@ -46,7 +47,7 @@ export default function HeroSection() {
           top: '-10px',
           left: '3%',
           fontSize: '8rem',
-          opacity: 0.04,
+          opacity: 0.03,
           transform: 'rotate(15deg)',
           pointerEvents: 'none',
           userSelect: 'none',
@@ -71,8 +72,8 @@ export default function HeroSection() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            backgroundColor: 'rgba(212, 168, 67, 0.15)',
-            border: '1px solid rgba(212, 168, 67, 0.4)',
+            backgroundColor: 'rgba(123, 201, 80, 0.1)',
+            border: '1px solid rgba(123, 201, 80, 0.3)',
             borderRadius: '9999px',
             padding: '6px 16px',
             marginBottom: '28px',
@@ -83,10 +84,10 @@ export default function HeroSection() {
             style={{
               fontSize: '0.8rem',
               fontWeight: 600,
-              color: '#D4A843',
-              letterSpacing: '0.06em',
+              color: '#7BC950',
+              letterSpacing: '0.08em',
               textTransform: 'uppercase',
-              fontFamily: 'var(--font-inter, Inter, sans-serif)',
+              fontFamily: 'var(--font-literata, Literata, serif)',
             }}
           >
             Colorado&apos;s Mushroom Marketplace
@@ -96,19 +97,19 @@ export default function HeroSection() {
         {/* Main heading */}
         <h1
           style={{
-            fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
+            fontFamily: 'var(--font-fraunces, Fraunces, serif)',
             fontSize: 'clamp(2.8rem, 7vw, 5.5rem)',
-            fontWeight: 700,
-            color: '#FAF7F0',
+            fontWeight: 900,
+            color: '#E0E0E0',
             lineHeight: 1.1,
-            letterSpacing: '-0.02em',
+            letterSpacing: '-0.03em',
             marginBottom: '20px',
           }}
         >
           Find Your{' '}
           <span
             style={{
-              color: '#D4A843',
+              color: '#7BC950',
               fontStyle: 'italic',
             }}
           >
@@ -119,13 +120,13 @@ export default function HeroSection() {
         {/* Subheading */}
         <p
           style={{
-            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
-            color: 'rgba(250, 247, 240, 0.75)',
-            lineHeight: 1.6,
+            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+            color: 'rgba(224, 224, 224, 0.7)',
+            lineHeight: 1.7,
             marginBottom: '40px',
             maxWidth: '560px',
             margin: '0 auto 40px',
-            fontFamily: 'var(--font-inter, Inter, sans-serif)',
+            fontFamily: 'var(--font-literata, Literata, serif)',
           }}
         >
           Discover licensed psilocybin healing centers, medicinal mushroom shops, and
@@ -142,8 +143,8 @@ export default function HeroSection() {
           style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: '40px',
-            marginTop: '48px',
+            gap: '48px',
+            marginTop: '56px',
             flexWrap: 'wrap',
           }}
         >
@@ -155,10 +156,10 @@ export default function HeroSection() {
             <div key={stat.label} style={{ textAlign: 'center' }}>
               <div
                 style={{
-                  fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
-                  fontSize: '2rem',
-                  fontWeight: 700,
-                  color: '#D4A843',
+                  fontFamily: 'var(--font-fraunces, Fraunces, serif)',
+                  fontSize: '2.25rem',
+                  fontWeight: 800,
+                  color: '#7BC950',
                   lineHeight: 1,
                 }}
               >
@@ -167,9 +168,10 @@ export default function HeroSection() {
               <div
                 style={{
                   fontSize: '0.8rem',
-                  color: 'rgba(250,247,240,0.6)',
-                  marginTop: '4px',
-                  fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                  color: 'rgba(224, 224, 224, 0.5)',
+                  marginTop: '6px',
+                  fontFamily: 'var(--font-literata, Literata, serif)',
+                  letterSpacing: '0.03em',
                 }}
               >
                 {stat.label}

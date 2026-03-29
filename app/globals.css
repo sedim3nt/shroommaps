@@ -1,29 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors */
-  --color-forest-green: #2D5016;
-  --color-mushroom-brown: #8B6F47;
-  --color-mycelium-gold: #D4A843;
-  --color-warm-cream: #FAF7F0;
-  --color-light-sand: #F0EBE0;
-  --color-medium-bark: #A89278;
-  --color-dark-soil: #2C1810;
-  --color-spore-black: #1A1008;
+  /* Moss Circuit Palette */
+  --color-deep-forest: #0D1F0D;
+  --color-moss: #2D5A27;
+  --color-electric-green: #7BC950;
+  --color-midnight: #1A1A2E;
+  --color-silver: #E0E0E0;
 
-  /* Vertical colors */
-  --color-therapeutic: #7B68AE;
-  --color-medicinal: #87A878;
-  --color-gourmet: #D4853A;
+  /* Extended palette */
+  --color-forest-mid: #1A3A1A;
+  --color-moss-light: #3D7A35;
+  --color-electric-dim: #5A9940;
+  --color-surface: #162016;
+  --color-surface-raised: #1E2E1E;
+  --color-muted: #8A9A8A;
+
+  /* Vertical colors (adjusted for dark theme) */
+  --color-therapeutic: #9B88CE;
+  --color-medicinal: #7BC950;
+  --color-gourmet: #E89A4A;
 
   /* Fonts */
-  --font-display: var(--font-playfair, "Playfair Display", serif);
-  --font-sans: var(--font-inter, "Inter", ui-sans-serif, system-ui, sans-serif);
+  --font-display: var(--font-fraunces, "Fraunces", serif);
+  --font-body: var(--font-literata, "Literata", serif);
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   /* Shadows */
-  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 8px 32px rgba(123, 201, 80, 0.15);
 }
 
 /* Base styles */
@@ -40,10 +45,10 @@ html {
 }
 
 body {
-  background-color: #FAF7F0;
-  color: #2C1810;
-  font-family: var(--font-sans);
-  line-height: 1.5;
+  background-color: #0D1F0D;
+  color: #E0E0E0;
+  font-family: var(--font-body);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -55,33 +60,36 @@ h1, h2, h3, h4, h5, h6 {
 /* Leaflet popup override */
 .myco-popup .leaflet-popup-content-wrapper {
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  border: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  border: 1px solid rgba(123, 201, 80, 0.2);
   padding: 0;
+  background: #1E2E1E;
 }
 
 .myco-popup .leaflet-popup-content {
   margin: 16px;
+  color: #E0E0E0;
 }
 
 .myco-popup .leaflet-popup-tip {
-  background: white;
+  background: #1E2E1E;
 }
 
 /* Hover card effect */
 .hover-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+  box-shadow: 0 8px 32px rgba(123, 201, 80, 0.12) !important;
+  border-color: rgba(123, 201, 80, 0.3) !important;
 }
 
 /* Transitions */
 a {
-  transition: opacity 200ms ease;
+  transition: opacity 200ms ease, color 200ms ease;
 }
 
 /* Focus visible */
 :focus-visible {
-  outline: 2px solid #2D5016;
+  outline: 2px solid #7BC950;
   outline-offset: 2px;
 }
 
@@ -92,14 +100,91 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F0EBE0;
+  background: #0D1F0D;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #A89278;
+  background: #2D5A27;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8B6F47;
+  background: #3D7A35;
 }
+
+/* Mycelium search animation */
+@keyframes mycelium-branch {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 100;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes mycelium-pulse {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.mycelium-container {
+  position: absolute;
+  inset: -60px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.mycelium-active .mycelium-container {
+  opacity: 1;
+}
+
+.mycelium-line {
+  stroke: #7BC950;
+  stroke-width: 1;
+  fill: none;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  opacity: 0;
+}
+
+.mycelium-active .mycelium-line {
+  animation: mycelium-branch 2.5s ease-out infinite;
+}
+
+.mycelium-active .mycelium-line:nth-child(2) { animation-delay: 0.3s; }
+.mycelium-active .mycelium-line:nth-child(3) { animation-delay: 0.6s; }
+.mycelium-active .mycelium-line:nth-child(4) { animation-delay: 0.9s; }
+.mycelium-active .mycelium-line:nth-child(5) { animation-delay: 1.2s; }
+.mycelium-active .mycelium-line:nth-child(6) { animation-delay: 0.15s; }
+.mycelium-active .mycelium-line:nth-child(7) { animation-delay: 0.45s; }
+.mycelium-active .mycelium-line:nth-child(8) { animation-delay: 0.75s; }
+.mycelium-active .mycelium-line:nth-child(9) { animation-delay: 1.05s; }
+.mycelium-active .mycelium-line:nth-child(10) { animation-delay: 1.35s; }
+.mycelium-active .mycelium-line:nth-child(11) { animation-delay: 0.2s; }
+.mycelium-active .mycelium-line:nth-child(12) { animation-delay: 0.5s; }
+
+.mycelium-node {
+  fill: #7BC950;
+  opacity: 0;
+}
+
+.mycelium-active .mycelium-node {
+  animation: mycelium-pulse 2s ease-in-out infinite;
+}
+
+.mycelium-active .mycelium-node:nth-child(2) { animation-delay: 0.4s; }
+.mycelium-active .mycelium-node:nth-child(3) { animation-delay: 0.8s; }
+.mycelium-active .mycelium-node:nth-child(4) { animation-delay: 1.2s; }
+.mycelium-active .mycelium-node:nth-child(5) { animation-delay: 0.6s; }
+.mycelium-active .mycelium-node:nth-child(6) { animation-delay: 1.0s; }

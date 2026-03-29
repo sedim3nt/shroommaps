@@ -36,8 +36,9 @@ export default function VerticalCards() {
   return (
     <section
       style={{
-        backgroundColor: '#FAF7F0',
+        backgroundColor: '#0D1F0D',
         padding: '80px 24px',
+        borderTop: '1px solid rgba(123, 201, 80, 0.08)',
       }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
@@ -45,10 +46,10 @@ export default function VerticalCards() {
         <div style={{ textAlign: 'center', marginBottom: '52px' }}>
           <h2
             style={{
-              fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
+              fontFamily: 'var(--font-fraunces, Fraunces, serif)',
               fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-              fontWeight: 700,
-              color: '#2C1810',
+              fontWeight: 800,
+              color: '#E0E0E0',
               marginBottom: '12px',
               letterSpacing: '-0.02em',
             }}
@@ -58,11 +59,11 @@ export default function VerticalCards() {
           <p
             style={{
               fontSize: '1.05rem',
-              color: '#8B6F47',
+              color: '#8A9A8A',
               maxWidth: '520px',
               margin: '0 auto',
               lineHeight: 1.6,
-              fontFamily: 'var(--font-inter, Inter, sans-serif)',
+              fontFamily: 'var(--font-literata, Literata, serif)',
             }}
           >
             Whether you&apos;re seeking healing, wellness, or culinary adventure — MycoMaps connects
@@ -84,14 +85,17 @@ export default function VerticalCards() {
               <div
                 key={v.id}
                 style={{
-                  backgroundColor: '#F0EBE0',
-                  borderRadius: '16px',
+                  backgroundColor: '#1E2E1E',
+                  borderRadius: '2px',
                   padding: '32px',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.3)',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '20px',
-                  borderTop: `4px solid ${color}`,
+                  borderTop: `3px solid ${color}`,
+                  borderLeft: '1px solid rgba(123, 201, 80, 0.08)',
+                  borderRight: '1px solid rgba(123, 201, 80, 0.08)',
+                  borderBottom: '1px solid rgba(123, 201, 80, 0.08)',
                   transition: 'transform 200ms ease, box-shadow 200ms ease',
                 }}
               >
@@ -101,23 +105,24 @@ export default function VerticalCards() {
                     style={{
                       width: '56px',
                       height: '56px',
-                      backgroundColor: `${color}15`,
-                      borderRadius: '12px',
+                      backgroundColor: `${color}20`,
+                      borderRadius: '2px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontSize: '1.75rem',
                       marginBottom: '16px',
+                      border: `1px solid ${color}30`,
                     }}
                   >
                     {v.icon}
                   </div>
                   <h3
                     style={{
-                      fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
+                      fontFamily: 'var(--font-fraunces, Fraunces, serif)',
                       fontSize: '1.25rem',
                       fontWeight: 700,
-                      color: '#2C1810',
+                      color: '#E0E0E0',
                       marginBottom: '8px',
                     }}
                   >
@@ -126,9 +131,9 @@ export default function VerticalCards() {
                   <p
                     style={{
                       fontSize: '0.875rem',
-                      color: '#8B6F47',
+                      color: '#8A9A8A',
                       lineHeight: 1.6,
-                      fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                      fontFamily: 'var(--font-literata, Literata, serif)',
                     }}
                   >
                     {VERTICAL_DESCRIPTIONS[v.id]}
@@ -154,8 +159,8 @@ export default function VerticalCards() {
                         alignItems: 'center',
                         gap: '10px',
                         fontSize: '0.875rem',
-                        color: '#5C4033',
-                        fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                        color: 'rgba(224, 224, 224, 0.7)',
+                        fontFamily: 'var(--font-literata, Literata, serif)',
                       }}
                     >
                       <span
@@ -179,16 +184,17 @@ export default function VerticalCards() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
-                    backgroundColor: color,
-                    color: '#FAF7F0',
+                    backgroundColor: 'transparent',
+                    color: color,
                     padding: '12px 20px',
-                    borderRadius: '10px',
+                    borderRadius: '2px',
                     fontWeight: 600,
                     fontSize: '0.875rem',
                     textDecoration: 'none',
                     marginTop: 'auto',
-                    transition: 'opacity 200ms ease',
-                    fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                    transition: 'all 200ms ease',
+                    fontFamily: 'var(--font-literata, Literata, serif)',
+                    border: `1px solid ${color}60`,
                   }}
                 >
                   {v.cta}

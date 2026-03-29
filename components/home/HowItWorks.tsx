@@ -28,8 +28,9 @@ export default function HowItWorks() {
   return (
     <section
       style={{
-        backgroundColor: '#FAF7F0',
+        backgroundColor: '#0D1F0D',
         padding: '80px 24px',
+        borderTop: '1px solid rgba(123, 201, 80, 0.08)',
       }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
@@ -37,10 +38,10 @@ export default function HowItWorks() {
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <h2
             style={{
-              fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
+              fontFamily: 'var(--font-fraunces, Fraunces, serif)',
               fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-              fontWeight: 700,
-              color: '#2C1810',
+              fontWeight: 800,
+              color: '#E0E0E0',
               marginBottom: '12px',
               letterSpacing: '-0.02em',
             }}
@@ -50,8 +51,8 @@ export default function HowItWorks() {
           <p
             style={{
               fontSize: '1.05rem',
-              color: '#8B6F47',
-              fontFamily: 'var(--font-inter, Inter, sans-serif)',
+              color: '#8A9A8A',
+              fontFamily: 'var(--font-literata, Literata, serif)',
             }}
           >
             Finding the right mushroom retailer has never been easier.
@@ -76,15 +77,16 @@ export default function HowItWorks() {
                     width: '56px',
                     height: '56px',
                     borderRadius: '50%',
-                    backgroundColor: '#2D5016',
-                    color: '#FAF7F0',
+                    backgroundColor: '#2D5A27',
+                    color: '#7BC950',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
+                    fontFamily: 'var(--font-fraunces, Fraunces, serif)',
                     fontSize: '1.25rem',
                     fontWeight: 700,
                     flexShrink: 0,
+                    border: '1px solid rgba(123, 201, 80, 0.3)',
                   }}
                 >
                   {step.number}
@@ -93,9 +95,9 @@ export default function HowItWorks() {
                   <div
                     style={{
                       flex: 1,
-                      height: '2px',
-                      backgroundImage: 'linear-gradient(to right, #2D5016, transparent)',
-                      display: 'none', // visible only on desktop via CSS
+                      height: '1px',
+                      backgroundImage: 'linear-gradient(to right, rgba(123, 201, 80, 0.3), transparent)',
+                      display: 'none',
                     }}
                   />
                 )}
@@ -105,12 +107,13 @@ export default function HowItWorks() {
                 style={{
                   width: '48px',
                   height: '48px',
-                  backgroundColor: '#F0EBE0',
-                  borderRadius: '12px',
+                  backgroundColor: '#1E2E1E',
+                  borderRadius: '2px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   fontSize: '1.5rem',
+                  border: '1px solid rgba(123, 201, 80, 0.1)',
                 }}
               >
                 {step.icon}
@@ -119,10 +122,10 @@ export default function HowItWorks() {
               <div>
                 <h3
                   style={{
-                    fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
+                    fontFamily: 'var(--font-fraunces, Fraunces, serif)',
                     fontSize: '1.25rem',
                     fontWeight: 700,
-                    color: '#2C1810',
+                    color: '#E0E0E0',
                     marginBottom: '8px',
                   }}
                 >
@@ -131,9 +134,9 @@ export default function HowItWorks() {
                 <p
                   style={{
                     fontSize: '0.9rem',
-                    color: '#8B6F47',
+                    color: '#8A9A8A',
                     lineHeight: 1.7,
-                    fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                    fontFamily: 'var(--font-literata, Literata, serif)',
                   }}
                 >
                   {step.description}
@@ -146,23 +149,24 @@ export default function HowItWorks() {
         {/* CTA banner */}
         <div
           style={{
-            background: 'linear-gradient(135deg, #2D5016 0%, #3d6b20 100%)',
-            borderRadius: '20px',
+            background: 'linear-gradient(135deg, #1A3A1A 0%, #2D5A27 100%)',
+            borderRadius: '2px',
             padding: '48px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             flexWrap: 'wrap',
             gap: '24px',
+            border: '1px solid rgba(123, 201, 80, 0.2)',
           }}
         >
           <div>
             <h3
               style={{
-                fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
+                fontFamily: 'var(--font-fraunces, Fraunces, serif)',
                 fontSize: 'clamp(1.4rem, 3vw, 1.75rem)',
                 fontWeight: 700,
-                color: '#FAF7F0',
+                color: '#E0E0E0',
                 marginBottom: '8px',
               }}
             >
@@ -171,8 +175,8 @@ export default function HowItWorks() {
             <p
               style={{
                 fontSize: '1rem',
-                color: 'rgba(250,247,240,0.75)',
-                fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                color: 'rgba(224, 224, 224, 0.65)',
+                fontFamily: 'var(--font-literata, Literata, serif)',
               }}
             >
               List your business for free. Reach customers actively searching for mushroom products.
@@ -182,15 +186,15 @@ export default function HowItWorks() {
             <Link
               href="/about#claim"
               style={{
-                backgroundColor: '#D4A843',
-                color: '#2C1810',
+                backgroundColor: '#7BC950',
+                color: '#0D1F0D',
                 padding: '14px 28px',
-                borderRadius: '10px',
+                borderRadius: '2px',
                 fontWeight: 700,
                 fontSize: '0.95rem',
                 textDecoration: 'none',
                 whiteSpace: 'nowrap',
-                fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                fontFamily: 'var(--font-literata, Literata, serif)',
                 transition: 'background-color 200ms ease',
               }}
             >
@@ -200,15 +204,15 @@ export default function HowItWorks() {
               href="/about#pricing"
               style={{
                 backgroundColor: 'transparent',
-                color: '#FAF7F0',
+                color: '#E0E0E0',
                 padding: '14px 28px',
-                borderRadius: '10px',
+                borderRadius: '2px',
                 fontWeight: 600,
                 fontSize: '0.95rem',
                 textDecoration: 'none',
-                border: '2px solid rgba(250,247,240,0.3)',
+                border: '1px solid rgba(224, 224, 224, 0.2)',
                 whiteSpace: 'nowrap',
-                fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                fontFamily: 'var(--font-literata, Literata, serif)',
               }}
             >
               View Pricing

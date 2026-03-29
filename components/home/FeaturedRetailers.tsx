@@ -8,8 +8,9 @@ export default function FeaturedRetailers() {
   return (
     <section
       style={{
-        backgroundColor: '#F0EBE0',
+        backgroundColor: '#162016',
         padding: '80px 24px',
+        borderTop: '1px solid rgba(123, 201, 80, 0.08)',
       }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
@@ -35,15 +36,15 @@ export default function FeaturedRetailers() {
             >
               <span
                 style={{
-                  backgroundColor: '#D4A843',
-                  color: '#2C1810',
+                  backgroundColor: '#7BC950',
+                  color: '#0D1F0D',
                   fontSize: '0.7rem',
                   fontWeight: 700,
                   padding: '3px 10px',
-                  borderRadius: '9999px',
+                  borderRadius: '2px',
                   letterSpacing: '0.06em',
                   textTransform: 'uppercase',
-                  fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                  fontFamily: 'var(--font-literata, Literata, serif)',
                 }}
               >
                 ★ Featured
@@ -51,10 +52,10 @@ export default function FeaturedRetailers() {
             </div>
             <h2
               style={{
-                fontFamily: 'var(--font-playfair, "Playfair Display", serif)',
+                fontFamily: 'var(--font-fraunces, Fraunces, serif)',
                 fontSize: 'clamp(1.75rem, 3.5vw, 2.25rem)',
-                fontWeight: 700,
-                color: '#2C1810',
+                fontWeight: 800,
+                color: '#E0E0E0',
                 letterSpacing: '-0.02em',
               }}
             >
@@ -63,9 +64,9 @@ export default function FeaturedRetailers() {
             <p
               style={{
                 fontSize: '1rem',
-                color: '#8B6F47',
+                color: '#8A9A8A',
                 marginTop: '8px',
-                fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                fontFamily: 'var(--font-literata, Literata, serif)',
               }}
             >
               Verified, highly-rated mushroom retailers in Colorado
@@ -75,17 +76,17 @@ export default function FeaturedRetailers() {
           <Link
             href="/search"
             style={{
-              color: '#2D5016',
+              color: '#7BC950',
               textDecoration: 'none',
               fontWeight: 600,
               fontSize: '0.9rem',
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
-              fontFamily: 'var(--font-inter, Inter, sans-serif)',
-              border: '2px solid #2D5016',
+              fontFamily: 'var(--font-literata, Literata, serif)',
+              border: '1px solid rgba(123, 201, 80, 0.4)',
               padding: '8px 20px',
-              borderRadius: '8px',
+              borderRadius: '2px',
               transition: 'all 200ms ease',
               whiteSpace: 'nowrap',
             }}
