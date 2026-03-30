@@ -6,7 +6,9 @@ import { useState } from 'react'
 import UserButton from '@/components/auth/UserButton'
 
 const NAV_LINKS = [
-  { href: '/search', label: 'Explore' },
+  { href: '/search', label: 'Map' },
+  { href: '/foraging', label: 'Forage' },
+  { href: '/species', label: 'Species' },
   { href: '/legal', label: 'Legal Status' },
   { href: '/about', label: 'About' },
 ]

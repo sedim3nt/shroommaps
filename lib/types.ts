@@ -69,6 +69,52 @@ export interface Deal {
   isFeatured: boolean
 }
 
+// Foraging types
+export type SpeciesCategory = 'edible' | 'medicinal' | 'caution' | 'deadly'
+
+export interface ForagingSpot {
+  id: string
+  userId: string
+  name: string
+  description?: string
+  latitude: number
+  longitude: number
+  isPrivate: boolean
+  species: string[]
+  habitat?: string
+  season: string[]
+  terrain?: string
+  elevation?: number
+  lastVisited?: string
+  photos: string[]
+  createdAt: string
+}
+
+export interface SpotObservation {
+  id: string
+  spotId: string
+  userId: string
+  speciesFound: string[]
+  date: string
+  notes?: string
+  conditions?: 'rain' | 'dry' | 'frost'
+  quantity?: 'none' | 'few' | 'some' | 'abundant'
+  photos: string[]
+  createdAt: string
+}
+
+export interface MushroomSpecies {
+  commonName: string
+  scientificName: string
+  category: SpeciesCategory
+  edibility: string
+  season: string
+  habitat: string
+  idFeatures: string[]
+  lookAlikes: string[]
+  months: number[] // 1-12
+}
+
 export type TherapeuticStatus = 'legal' | 'pending' | 'decriminalized' | 'prohibited'
 
 export interface StateStatus {
