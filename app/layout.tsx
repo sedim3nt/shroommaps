@@ -41,11 +41,13 @@ export const metadata: Metadata = {
     description: 'The mushroom marketplace. Find therapeutic, medicinal, and gourmet mushroom retailers near you.',
     type: 'website',
     siteName: 'MycoMaps',
+    images: [{ url: 'https://raw.githubusercontent.com/sedim3nt/spirittree-assets/main/og/mycomaps.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'MycoMaps — Find Your Fungi',
     description: 'The mushroom marketplace. Find therapeutic, medicinal, and gourmet mushroom retailers near you.',
+    images: ['https://raw.githubusercontent.com/sedim3nt/spirittree-assets/main/og/mycomaps.png'],
   },
 }
 
