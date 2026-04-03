@@ -49,6 +49,7 @@ export default function ReviewSection({ retailerId, initialReviews, avgRating, r
   // Refresh reviews from Supabase on mount
   useEffect(() => {
     const supabase = createBrowserClient()
+    if (!supabase) return
     supabase
       .from('reviews')
       .select('*')
@@ -84,6 +85,11 @@ export default function ReviewSection({ retailerId, initialReviews, avgRating, r
     setSubmitError(null)
 
     const supabase = createBrowserClient()
+    if (!supabase) {
+      setSubmitting(false)
+      setSubmitError('Database not configured')
+      return
+    }
     const { error } = await supabase.from('reviews').insert({
       retailer_id: retailerId,
       user_id: user!.id,

@@ -24,6 +24,11 @@ export default function ClaimForm({ retailerId, retailerName }: Props) {
     setError(null)
 
     const supabase = createBrowserClient()
+    if (!supabase) {
+      setSubmitting(false)
+      setError('Database not configured')
+      return
+    }
     const { error: dbError } = await supabase.from('claims').insert({
       retailer_id: retailerId,
       name: name.trim(),
