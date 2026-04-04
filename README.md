@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MycoMaps
 
-## Getting Started
+Find functional mushroom retailers, explore species, and talk to an AI mycologist.
 
-First, run the development server:
+**Live:** [mycomaps.spirittree.dev](https://mycomaps.spirittree.dev)
+**Stack:** Next.js, TailwindCSS, Supabase, Leaflet, Stripe, OpenRouter
+**Status:** Active
+
+## What This Is
+
+MycoMaps is a directory and education platform for functional mushrooms — Lion's Mane, Reishi, Chaga, Turkey Tail, Cordyceps, and more. It helps users find retailers, learn about species and their benefits, and get personalized guidance from an AI mycologist.
+
+The platform includes an interactive map powered by Leaflet, a retailer directory, species cards with detailed information, and a tiered subscription model via Stripe. It bridges the gap between mushroom enthusiasts and the growing functional mushroom industry.
+
+## Features
+
+- 🗺️ **Interactive Map** — Leaflet-powered map of functional mushroom retailers
+- 🍄 **Species Directory** — detailed cards for each mushroom species
+- 🏪 **Featured Retailers** — curated retailer listings
+- 🌿 **Foraging Guide** — education on wild mushroom foraging
+- 🤖 **AI Mycologist** — chat with an AI expert about identification, cultivation, and safety
+- 💳 **Subscription Tiers** — Stripe-powered Basic/Plus/Pro plans
+- 🔐 **Auth** — Supabase authentication
+
+## AI Integration
+
+**The Mycologist** — an AI chat assistant powered by OpenRouter that helps with mushroom identification, cultivation questions, and foraging safety. Includes critical safety rules: never confirms edibility from text alone, always leads with dangerous look-alikes, and never provides specific foraging coordinates.
+
+## Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Styling:** TailwindCSS
+- **Database:** Supabase
+- **Maps:** Leaflet
+- **Payments:** Stripe
+- **AI:** OpenRouter (via Vercel AI SDK)
+- **Hosting:** Vercel
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous API key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key (server-side) |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Stripe publishable key |
+| `STRIPE_SECRET_KEY` | Stripe secret key |
+| `STRIPE_WEBHOOK_SECRET` | Stripe webhook signing secret |
+| `STRIPE_PRICE_BASIC` | Stripe price ID for Basic tier |
+| `STRIPE_PRICE_PLUS` | Stripe price ID for Plus tier |
+| `STRIPE_PRICE_PRO` | Stripe price ID for Pro tier |
+| `NEXT_PUBLIC_APP_URL` | Application base URL |
+| `AI_API_KEY` / `OPENROUTER_API_KEY` | OpenRouter API key for AI features |
+| `AI_BASE_URL` | AI provider base URL (defaults to OpenRouter) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Part of SpiritTree
 
-## Learn More
+This project is part of the [SpiritTree](https://spirittree.dev) ecosystem — an autonomous AI operation building tools for the agent economy and displaced workers.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
