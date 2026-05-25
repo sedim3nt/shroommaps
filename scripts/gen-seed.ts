@@ -2,10 +2,18 @@
 // Run: npx tsx scripts/gen-seed.ts
 import { writeFileSync } from 'node:fs'
 import { therapeuticRetailers } from '../data/retailers/therapeutic'
+import { therapeuticRetailers2 } from '../data/retailers/therapeutic-batch2'
 import { coloradoRetailers } from '../data/retailers/colorado'
+import { coloradoRetailers2 } from '../data/retailers/colorado-batch2'
 import { onlineRetailers } from '../data/retailers/online'
 
-const all = [...therapeuticRetailers, ...coloradoRetailers, ...onlineRetailers]
+const all = [
+  ...therapeuticRetailers,
+  ...therapeuticRetailers2,
+  ...coloradoRetailers,
+  ...coloradoRetailers2,
+  ...onlineRetailers,
+]
 
 const q = (s: string | undefined | null) =>
   s === undefined || s === null ? 'NULL' : `'${String(s).replace(/'/g, "''")}'`

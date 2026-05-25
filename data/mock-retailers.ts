@@ -1,6 +1,8 @@
 import type { Retailer, Product, Review, Deal } from '@/lib/types'
 import { therapeuticRetailers } from '@/data/retailers/therapeutic'
+import { therapeuticRetailers2 } from '@/data/retailers/therapeutic-batch2'
 import { coloradoRetailers } from '@/data/retailers/colorado'
+import { coloradoRetailers2 } from '@/data/retailers/colorado-batch2'
 import { onlineRetailers } from '@/data/retailers/online'
 
 /**
@@ -22,7 +24,9 @@ import { onlineRetailers } from '@/data/retailers/online'
  */
 export const mockRetailers: Retailer[] = [
   ...therapeuticRetailers,
+  ...therapeuticRetailers2,
   ...coloradoRetailers,
+  ...coloradoRetailers2,
   ...onlineRetailers,
 ]
 
