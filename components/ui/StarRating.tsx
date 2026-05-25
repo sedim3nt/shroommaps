@@ -8,6 +8,22 @@ export default function StarRating({ rating, reviewCount, size = 'md' }: Props) 
   const starSize = size === 'sm' ? '12px' : size === 'lg' ? '20px' : '16px'
   const fontSize = size === 'sm' ? '0.75rem' : size === 'lg' ? '1rem' : '0.875rem'
 
+  // No reviews yet — show a neutral "New" indicator instead of an empty 0.0 (0).
+  if (!reviewCount) {
+    return (
+      <span
+        style={{
+          fontSize,
+          color: '#A89278',
+          fontStyle: 'italic',
+          fontFamily: 'var(--font-inter, Inter, sans-serif)',
+        }}
+      >
+        ☆ No reviews yet
+      </span>
+    )
+  }
+
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
       <div style={{ display: 'flex', gap: '1px' }}>

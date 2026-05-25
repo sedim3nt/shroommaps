@@ -214,6 +214,22 @@ export default async function RetailerPage({
             >
               {retailer.description}
             </p>
+            {retailer.licenseInfo && (
+              <p
+                style={{
+                  fontSize: '0.8rem',
+                  color: '#7C6A55',
+                  lineHeight: 1.6,
+                  fontStyle: 'italic',
+                  marginTop: '12px',
+                  paddingTop: '12px',
+                  borderTop: '1px solid rgba(124, 106, 85, 0.2)',
+                  fontFamily: 'var(--font-inter, Inter, sans-serif)',
+                }}
+              >
+                ⚖️ Listing provenance: {retailer.licenseInfo}
+              </p>
+            )}
             {retailer.tags.length > 0 && (
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '16px' }}>
                 {retailer.tags.map((tag) => (

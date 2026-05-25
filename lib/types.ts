@@ -34,6 +34,10 @@ export interface Retailer {
   avgRating: number
   reviewCount: number
   tags: string[]
+  /** True for national online brands that ship nationwide (pinned to their HQ). */
+  online?: boolean
+  /** Provenance/licensing note for therapeutic centers (e.g. CO Natural Medicine license traceability). */
+  licenseInfo?: string
 }
 
 export interface Product {

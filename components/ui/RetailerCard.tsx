@@ -79,6 +79,29 @@ export default function RetailerCard({ retailer, highlighted = false }: Props) {
             ))}
           </div>
 
+          {/* Online / ships-nationally badge */}
+          {retailer.online && (
+            <div
+              style={{
+                position: 'absolute',
+                top: '8px',
+                left: '8px',
+                backgroundColor: '#1E2E1E',
+                color: '#7BC950',
+                borderRadius: '2px',
+                padding: '3px 8px',
+                fontSize: '0.65rem',
+                fontWeight: 700,
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                fontFamily: 'var(--font-literata, Literata, serif)',
+                border: '1px solid rgba(123, 201, 80, 0.3)',
+              }}
+            >
+              🌐 Online
+            </div>
+          )}
+
           {/* Verified badge */}
           {retailer.isVerified && (
             <div
@@ -126,7 +149,9 @@ export default function RetailerCard({ retailer, highlighted = false }: Props) {
               fontFamily: 'var(--font-literata, Literata, serif)',
             }}
           >
-            📍 {retailer.city}, {retailer.state}
+            {retailer.online
+              ? `🌐 Ships nationally · HQ ${retailer.city}, ${retailer.state}`
+              : `📍 ${retailer.city}, ${retailer.state}`}
           </p>
 
           <StarRating rating={retailer.avgRating} reviewCount={retailer.reviewCount} size="sm" />

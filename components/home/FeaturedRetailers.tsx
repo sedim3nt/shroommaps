@@ -3,7 +3,10 @@ import { mockRetailers } from '@/data/mock-retailers'
 import RetailerCard from '@/components/ui/RetailerCard'
 
 export default function FeaturedRetailers() {
-  const featured = mockRetailers.filter((r) => r.subscriptionTier === 'pro').slice(0, 4)
+  // Feature verified (e.g. licensed) retailers; fall back to the full list so the
+  // section is never empty before any retailer holds a paid/pro tier.
+  const verified = mockRetailers.filter((r) => r.isVerified)
+  const featured = (verified.length >= 4 ? verified : mockRetailers).slice(0, 4)
 
   return (
     <section
