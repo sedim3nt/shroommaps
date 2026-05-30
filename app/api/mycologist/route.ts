@@ -1,8 +1,8 @@
-import { streamText } from 'ai';
+import { streamText, convertToModelMessages, type UIMessage } from 'ai';
 import { defaultModel } from '@/lib/ai-provider';
 
 export async function POST(req: Request) {
-  const { messages } = await req.json();
+  const { messages }: { messages: UIMessage[] } = await req.json();
 
   const result = streamText({
     model: defaultModel,
@@ -15,7 +15,7 @@ CRITICAL SAFETY RULES:
 (4) For foraging locations, give general ecosystem guidance but never specific GPS coordinates.
 
 Be passionate about fungi, scientifically grounded, with an emphasis on safety. Keep responses concise but thorough.`,
-    messages,
+    messages: await convertToModelMessages(messages),
     maxOutputTokens: 1200,
   });
 
